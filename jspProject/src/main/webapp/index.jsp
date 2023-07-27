@@ -26,6 +26,9 @@
 <a href="excep/ex404.jsp">404</a>
 <a href="excep/ex500.jsp">500</a>
 
+<h2>Request</h2>
+<a href="request/numForm.jsp">리퀘스트</a>
+
 
 </body>
 </html>
