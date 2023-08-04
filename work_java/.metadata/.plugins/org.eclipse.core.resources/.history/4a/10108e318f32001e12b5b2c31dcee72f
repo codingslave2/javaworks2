@@ -1,0 +1,29 @@
+public class BDeleteReg implements BoardService{
+    
+    public void execute(HttpServletRequest request, HttpServletResponse response) {
+        
+        String path = request.getRealPath("up");
+        // 다른 코드...
+        
+        BoardDTO dto = new BoardDTO();
+        dto.setId(Integer.parseInt(request.getParameter("id")));
+        dto.setPw(request.getParameter("pw"));
+        
+        String msg = "비밀번호가 일치하지 않습니다.";
+        String goUrl = "BDeleteForm?id=" + dto.getId();
+        
+        BoardDTO delDto = new BoardDAO().idPwChk(dto);
+        
+        if (delDto != null) {
+            int cnt = new BoardDAO().delete(dto);
+            if (cnt > 0) {
+                msg = "삭제되었습니다.";
+                goUrl = "BList";
+            }
+        }
+        
+        request.setAttribute("mainPage", "alert");
+        request.setAttribute("msg", msg);
+        request.setAttribute("goUrl", goUrl);
+    }
+}

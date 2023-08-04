@@ -30,6 +30,18 @@
 <a href="request/numForm.jsp">리퀘스트</a>
 <a href=""></a>
 
+<h2>redirect</h2>
+<a href="redirect/jspA.jsp">jspA</a>
+<a href="redirect/jspA.jsp">jspB</a>
+
+<h2>forward</h2>
+<a href="forward/jspA.jsp">jspA</a>
+<a href="forward/jspA.jsp">jspB</a>
+
+<h2>include</h2>
+<a href="include/jspA.jsp">jspA</a>
+<a href="include/jspA.jsp">jspB</a>
+
 
 </body>
 </html>

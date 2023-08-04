@@ -1,0 +1,35 @@
+package ser_p;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import control.BoardService;
+import model_p.BoardDAO;
+import model_p.BoardDTO;
+
+public class BDeleteReg implements BoardService{
+	
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		
+		String path = request.getRealPath("up");
+		path = "D:\\public\\green\\2023_07\\study\\java_work\\mvcProj\\src\\main\\webapp\\up";
+		
+		
+		BoadDTO dto = new BoardDTO();
+		dto.setId(Integer.parseInt(request.getParameter("id")));
+		
+		dto.setPw(request.getParameter("pw"));
+		
+		int cnt = new BoardDAO().delete(dto);
+		
+		request.setAttribute("mainPage", "alert");
+		request.setAttribute("msg", "삭제되었습니다.");
+		request.setAttribute("goUrl", "BList");
+				
+		
+	}
+
+}
